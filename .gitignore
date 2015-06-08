@@ -2,14 +2,13 @@
 *.log
 *.cache
 *.sublime-workspace
-!.htaccess
-!.gitignore
 Thumbs.db
 node_modules
 
 ## Nette
 # Nette - http://nette.org
 app/config/config.local.neon
-# Ignore /log and /temp directories content but commit .htaccess settings
 log/*
 temp/*
+!log/.htaccess
+!temp/.gitignore
