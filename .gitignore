@@ -11,4 +11,4 @@ app/config/config.local.neon
 log/*
 temp/*
 !log/.htaccess
-!temp/.gitignore
+!temp/.htaccess
