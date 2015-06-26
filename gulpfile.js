@@ -8,7 +8,10 @@ var gulp = require('gulp')
   , plugins = gulpLoadPlugins();
 
 var paths = {
-
+  base: './',
+  stylesSource: 'www/less',
+  stylesDist: 'www/css',
+  scripts: 'www/js'
 };
 
 gulp.task('browser-sync', function() {
@@ -29,7 +32,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('styles', function() {
-  gulp.src('www/less/main.less')
+  gulp.src(paths.styles + '/main.less')
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less()
       .on('error', plugins.util.log))
@@ -37,14 +40,14 @@ gulp.task('styles', function() {
     .pipe(plugins.minifyCss())
     .pipe(plugins.rename('style.min.css'))
     .pipe(plugins.sourcemaps.write('maps'))
-    .pipe(gulp.dest('www/css'))
+    .pipe(gulp.dest(paths.stylesDist))
     .pipe(browserSync.reload({
       stream: true
     }));
 });
 
 gulp.task('scripts', function() {
-  gulp.src('www/js/**/*.js')
+  gulp.src(paths.scripts . '/**/*.js')
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('default'));
 });
