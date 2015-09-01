@@ -14,6 +14,12 @@ var paths = {
   scripts: 'www/js'
 };
 
+var filesToDist = [
+  paths.base + paths.stylesDist,
+  paths.base + paths.scripts,
+  paths.base + 'www/*'
+];
+
 gulp.task('browser-sync', function() {
   browserSync({
     server: {
@@ -59,6 +65,11 @@ gulp.task('scripts', function() {
     .pipe(browserSync.reload({
       stream: true
     }));
+});
+
+gulp.task('build', function() {
+  gulp.src(filesToDist)
+    .pipe(gulp.dest(paths.base + 'dist'));
 });
 
 gulp.task('default', ['browser-sync'], function () {
