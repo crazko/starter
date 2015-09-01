@@ -15,9 +15,11 @@ var paths = {
 };
 
 var filesToDist = [
-  paths.base + paths.stylesDist,
-  paths.base + paths.scripts,
-  paths.base + 'www/*'
+  'log/**/*',
+  'temp/**/*',
+  paths.stylesDist + '/styles.css',
+  paths.scripts + '/scripts.js',
+  'www/*.*'
 ];
 
 gulp.task('browser-sync', function() {
@@ -33,7 +35,7 @@ gulp.task('clean', function() {
     'dist/*',
     'log/*',
     'temp/*',
-    paths.stylesDist + '/*',
+    paths.stylesDist,
     paths.scripts + '/scripts.js'
   ]);
 });
@@ -68,7 +70,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('build', function() {
-  gulp.src(filesToDist)
+  gulp.src(filesToDist, { base: './', dot: true })
     .pipe(gulp.dest(paths.base + 'dist'));
 });
 
