@@ -1,0 +1,11 @@
+{
+    "name": "crazko/starter",
+    "description": "starter project",
+    "authors": [
+        {
+            "name": "Roman Vesely",
+            "email": "crazko@gmail.com"
+        }
+    ],
+    "require": {}
+}

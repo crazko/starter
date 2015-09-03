@@ -4,6 +4,7 @@
 *.sublime-workspace
 Thumbs.db
 node_modules
+vendor
 
 ## Nette
 # Nette - http://nette.org
@@ -12,3 +13,4 @@ log/*
 temp/*
 !log/.htaccess
 !temp/.htaccess
+
