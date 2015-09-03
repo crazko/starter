@@ -74,7 +74,7 @@ gulp.task('build', function() {
     .pipe(gulp.dest(paths.base + 'dist'));
 });
 
-gulp.task('default', ['browser-sync'], function () {
+gulp.task('default', ['styles', 'scripts', 'browser-sync'], function () {
   gulp.watch(paths.stylesSource + '/**/*.less', ['styles']);
   gulp.watch(paths.scripts + '/**/*.js', ['scripts']);
   gulp.watch('www/*.html', browserSync.reload);
